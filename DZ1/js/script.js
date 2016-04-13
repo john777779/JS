@@ -12,9 +12,7 @@ function isNumeric(n) {
 }
 
 var x = +prompt('Введие число возводимое в степень');
-alert (typeof x);
 var n = +prompt('Введите степень');
-alert (typeof n);
 
 isNumeric(x);
 isNumeric(n);
