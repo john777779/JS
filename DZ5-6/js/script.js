@@ -6,9 +6,11 @@ var body = document.getElementsByTagName('body')[0],
  start.className = "start";
  var clear = document.createElement('a');
  clear.classList.add('clear');
- //elem = document.getElementsByClassName('start'),
-var eClear = document.querySelector('.clear'),
- timer = {
+ //elem = document.getElementsByClassName('start')
+var eClear = document.querySelectorAll('.clear');
+console.log(start);
+console.log(clear);
+var timer = {
    hours: 00,
    minutes: 00,
    sec: 00,
@@ -25,7 +27,7 @@ var eClear = document.querySelector('.clear'),
      i++;
    }, 2000);
    alert('Test');
- }
+ };
 
  function clear() {
    clearInterval()
@@ -47,5 +49,4 @@ div.appendChild(clear);
   clear.innerHTML = 'Clear';
 
 start.addEventListener('click', count);
-eClear.removeEventListener('click', count);
-//console.log(eClear);
+clear.removeEventsListener('click', count);
