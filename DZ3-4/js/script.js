@@ -18,34 +18,28 @@ var body = document.getElementsByTagName('body')[0],
 
    return '<h3>' + this.text + n + '</h3><ul>' + list + '</ul>';
   },
-},
+  getHeader: function title() {
+      var header = document.createElement('h1');
+      header.innerHTML = 'Тест по программированию';
+      body.appendChild(header);
+  },
 
-title = {
-  getHeader: function() {
-    var header = document.createElement('h1');
-    header.innerHTML = 'Тест по программированию';
-    return body.appendChild(header);
-  }
-}
-
-button = {
-  text : 'Проверить мои результаты',
-
-  getButton: function() {
-    var submit = document.createElement('button');
-    submit.className = "btn-group btn-group-lg";
-    submit.setAttribute('type', 'submit');
-    submit.innerHTML =  button.text;
-    return body.appendChild(submit);
-  }
+  textButton : 'Проверить мои результаты',
+  getButton: function button() {
+   var submit = document.createElement('button');
+   submit.className = "btn-group btn-group-lg";
+   submit.setAttribute('type', 'submit');
+   submit.innerHTML =  this.textButton;
+   body.appendChild(submit);
+ },
 };
 
 
-title.getHeader();
+question.getHeader();
 
 body.appendChild(tests);
 for (var i = 1; i < 4; i++) {
  tests.innerHTML += question.getQuestion(i);
 };
 
-button.getButton();
+question.getButton();
