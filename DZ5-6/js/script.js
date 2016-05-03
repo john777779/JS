@@ -2,51 +2,81 @@ var body = document.getElementsByTagName('body')[0],
  div = document.createElement('div'),
  span = document.createElement('span'),
  msec = document.createElement('p'),
- start = document.createElement('a');
- start.className = "start";
- var clear = document.createElement('a');
- clear.classList.add('clear');
- //elem = document.getElementsByClassName('start')
-var eClear = document.querySelectorAll('.clear');
+ start = document.createElement('button');
+ start.setAttribute('id', 'begin');
+ var clear = document.createElement('button');
+ clear.setAttribute('id', 'reset');
+
 console.log(start);
 console.log(clear);
-var timer = {
-   hours: 00,
-   minutes: 00,
-   sec: 00,
-   milisec: 000
- };
 
  function count() {
    start.innerHTML = 'Pause';
-   start.className = 'pause';
+   start.setAttribute('id', 'pause');
 
    var i = 1;
+
    setInterval(function() {
-     console.log(i);
-     i++;
-   }, 2000);
-   alert('Test');
+     var k = i + "",
+     ms = 0,
+     ss = Math.floor(i/1000),
+     s = ss%60
+     m = Math.floor(ss/60),
+     h = Math.floor(m/60);
+
+
+
+     if (h < 10) {
+       h = "0" + h;
+     };
+     if (m < 10) {
+       m = "0" + m;
+     };
+     if (s < 10) {
+       s = "0" + s;
+     };
+     if (i < 10) {
+       ms = k[k.length - 1];
+     } else {
+       if (i < 100) {
+         ms = k[k.length - 2] + k[k.length - 1];
+       } else {
+         ms = k[k.length - 3] + k[k.length - 2] + k[k.length - 1];
+       }
+     };
+
+
+
+
+     span.innerHTML = h + ':' + m + ':' + s;
+     msec.innerHTML = ms;
+
+     i = i + 4;
+
+ }, 1);
+
  };
 
- function clear() {
-   clearInterval()
- }
+ function clear1() {
+  span.innerHTML = "00" + ':' + "00" + ':' + "00";
+  msec.innerHTML = "000";
 
-  // console.log(e_start);
+  // clearInterval(count);
+ };
+
+
 body.appendChild(div);
 
 div.appendChild(span);
-  span.innerHTML = timer.hours + ':' + timer.minutes + ':' + timer.sec;
+  span.innerHTML = "00" + ':' + "00" + ':' + "00";
 div.appendChild(msec);
-  msec.innerHTML = timer.milisec;
+  msec.innerHTML = "000";
 
 div.appendChild(start);
-  start.className = 'start';
   start.innerHTML = 'Start';
 div.appendChild(clear);
-  clear.className = 'clear';
   clear.innerHTML = 'Clear';
 
-start.addEventListener('click', count);
-clear.removeEventsListener('click', count);
+begin.addEventListener('click', count, true);
+//pause.addEventListener('click', stop, )
+reset.removeEventListener('click', count);
