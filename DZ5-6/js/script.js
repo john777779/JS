@@ -7,62 +7,70 @@ var body = document.getElementsByTagName('body')[0],
  var clear = document.createElement('button');
  clear.setAttribute('id', 'reset');
 
-console.log(start);
-console.log(clear);
+var i = 1;
+//console.log(clear.getAttribute('id'));
+//console.log(clear);
 
+
+/*----Функция тймера---*/
  function count() {
-   start.innerHTML = 'Pause';
-   start.setAttribute('id', 'pause');
 
-   var i = 1;
+   if (start.getAttribute('id') == 'begin') {  /*---Запуск таймера---*/
+     start.innerHTML = 'Pause';
+     start.setAttribute('id', 'pause');
 
-   setInterval(function() {
-     var k = i + "",
-     ms = 0,
-     ss = Math.floor(i/1000),
-     s = ss%60
-     m = Math.floor(ss/60),
-     h = Math.floor(m/60);
+     timer = setInterval(function() {
+       var k = i + "",
+       ms = 0,
+       ss = Math.floor(i/1000),
+       s = ss%60
+       m = Math.floor(ss/60),
+       h = Math.floor(m/60);
 
-
-
-     if (h < 10) {
-       h = "0" + h;
-     };
-     if (m < 10) {
-       m = "0" + m;
-     };
-     if (s < 10) {
-       s = "0" + s;
-     };
-     if (i < 10) {
-       ms = k[k.length - 1];
-     } else {
-       if (i < 100) {
-         ms = k[k.length - 2] + k[k.length - 1];
+       if (h < 10) {
+         h = "0" + h;
+       };
+       if (m < 10) {
+         m = "0" + m;
+       };
+       if (s < 10) {
+         s = "0" + s;
+       };
+       if (i < 10) {
+         ms = k[k.length - 1];
        } else {
-         ms = k[k.length - 3] + k[k.length - 2] + k[k.length - 1];
-       }
-     };
+         if (i < 100) {
+           ms = k[k.length - 2] + k[k.length - 1];
+         } else {
+           ms = k[k.length - 3] + k[k.length - 2] + k[k.length - 1];
+         }
+       };
 
+       span.innerHTML = h + ':' + m + ':' + s;
+       msec.innerHTML = ms;
 
+       i = i + 4;
 
+   }, 1);
 
-     span.innerHTML = h + ':' + m + ':' + s;
-     msec.innerHTML = ms;
-
-     i = i + 4;
-
- }, 1);
+ } else { /*---Пауза таймера---*/
+   start.innerHTML = 'Start';
+   start.setAttribute('id', 'begin');
+   clearInterval(timer);
+  };
 
  };
 
+/*---Сброс таймера---*/
  function clear1() {
-  span.innerHTML = "00" + ':' + "00" + ':' + "00";
-  msec.innerHTML = "000";
-
-  // clearInterval(count);
- };
+   //aletr('test');
+   start.innerHTML = 'Start';
+   start.setAttribute('id', 'begin');
+   clearInterval(timer);
+   i = 1;
+   span.innerHTML = "00" + ':' + "00" + ':' + "00";
+   msec.innerHTML = "000";
+  };
 
 
 body.appendChild(div);
@@ -77,6 +85,7 @@ div.appendChild(start);
 div.appendChild(clear);
   clear.innerHTML = 'Clear';
 
-begin.addEventListener('click', count, true);
-//pause.addEventListener('click', stop, )
-reset.removeEventListener('click', count);
+start.addEventListener('click', count, true);
+clear.onclick = clear1;
+//clear.addEventListener('click', clear1, true);
+//reset.removeEventListener('click', count);
