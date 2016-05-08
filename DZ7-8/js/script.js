@@ -1,3 +1,5 @@
+
+/*---Tabs---*/
 $(function() {
     var $tab_1 = $('.tab-1'),
     $tab_2 = $('.tab-2'),
@@ -32,5 +34,42 @@ $(function() {
       $subTabs_1.css('display', 'none');
       $subTabs_2.css('display', 'none');
     });
+
+  });
+
+/*---Forms----*/
+  $(function() {
+    var $firstname = $('.firstname'),
+    $lastname = $('.lastname'),
+    $address = $('.address'),
+    $helpFirstname = $('.helpFirstname'),
+    $helpLastname = $('.helpLastname'),
+    $helpAddress = $('.helpAddress'),
+    $showHelp = $('.showHelp');
+
+
+    $firstname.hover(function() {
+      $helpFirstname.show(500)
+    },function() {
+      $helpFirstname.hide(500)
+    });
+
+    $lastname.hover(function() {
+      $helpLastname.show(500)
+    },function() {
+      $helpLastname.hide(500)
+    });
+
+    $address.hover(function() {
+      $helpAddress.show(500)
+    },function() {
+      $helpAddress.hide(500)
+    });
+
+    $showHelp.on('click', function() {
+      $helpFirstname.show(500);
+      $helpLastname.show(500);
+      $helpAddress.show(500);
+    })
 
   });

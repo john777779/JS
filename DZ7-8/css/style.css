@@ -1,3 +1,5 @@
+/*---Tabs---*/
+
 .wrapper {
   margin: 10px auto 0;
   width: 800px;
@@ -28,4 +30,19 @@
 
 .subTabs-3 {
   display: none;
+}
+
+
+/*---Форма---*/
+span.help {
+  display: none;
+}
+
+.input3 {
+  margin: 0 0 0 10px;
+}
+
+
+label {
+  margin: 10px;
 }
