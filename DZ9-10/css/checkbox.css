@@ -1,0 +1,31 @@
+input.item1 {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+label.item1 {
+    cursor: pointer;
+}
+
+label.item1:after {
+    content: ' ';
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    background: url(../img/checkbox-2.png);
+    position: relative;
+    top: 3px;
+    margin-left: 15px;
+}
+
+input.item1:checked + label:after {
+  background-position: 0 -17px;
+}
+
+label.item1:hover:after {
+  background-position: 0 -34px;
+}
+
+input.item1:checked + label.item1:hover:after {
+  background-position: 0 -51px;
+}
