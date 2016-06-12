@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+	<script   src="https://code.jquery.com/jquery-1.12.3.js"
+	   integrity="sha256-1XMpEtA4eKXNNpXcJ1pmMPs8JV+nwLdEqwiJeCQEkyc="
+	   crossorigin="anonymous"></script>
+	<script src="js/template.js"></script>
+	<script src="js/modal.js"></script>
+	<script src="js/script.js"></script>
+</head>
+
+<body>
+	<section>
+	<script type="text/html" id="page">
+		<div class="main">
+		<h1><%= title %></h1>
+		<div class="firstQuastion">
+			<h3><%= quastion1 %></h3>
+			<ul>
+				<% for (var i = 0; i < ansver1.length; i++) { %>
+				<li>
+					<label>
+						<input type="radio" name="<%= name1 %>" value="<%= ansver1[i].correct %>">
+							<%= ansver1[i].text %>
+					</label></li>
+					<% }; %>
+			</ul>
+		</div>
+
+		<div class="secondQuastion">
+			<h3><%= quastion2 %></h3>
+			<ul>
+				<% for (var i = 0; i < ansver2.length; i++) { %>
+				<li>
+					<label>
+						<input type="radio" name="<%= name2 %>" value="<%= ansver2[i].correct %>">
+						<%= ansver1[i].text %>
+					</label></li>
+					<% }; %>
+			</ul>
+		</div>
+
+		<div class="thirdQuastion">
+			<h3><%= quastion3 %></h3>
+			<ul>
+				<% for (var i = 0; i < ansver3.length; i++) { %>
+				<li>
+					<label>
+						<input type="radio" name="<%= name3 %>" value="<%= ansver3[i].correct %>">
+						<%= ansver1[i].text %>
+					</label>
+				</li>
+				<% }; %>
+			</ul>
+		</div>
+
+
+	</script>
+</section>
+<button class="btn btn-default" type="submit" name="button">Проверить мои результаты</button>
+
+
+
+</body>
+</html>
